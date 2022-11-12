@@ -37,6 +37,9 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = { "sumneko_lua" }
@@ -45,9 +48,11 @@ require("mason-lspconfig").setup({
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities
 }
 
 require('lspconfig')['sumneko_lua'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities
 }
