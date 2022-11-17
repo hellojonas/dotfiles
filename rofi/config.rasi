@@ -1,6 +1,6 @@
 configuration {
 /*	modes: "window,drun,run,ssh";*/
-font: "Source Code Pro 8";
+font: "Source Code Pro 9";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -149,4 +149,4 @@ font: "Source Code Pro 8";
       sorting-method:    "name";
   }
 }
-@theme "dmenu"
+@theme "solarized"
