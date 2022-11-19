@@ -33,9 +33,9 @@ require("packer").startup(function(use)
   --   "williamboman/mason.nvim",
   --   "williamboman/mason-lspconfig.nvim"
   -- }
-  -- use { "lewis6991/gitsigns.nvim", }
-  -- use { "kyazdani42/nvim-web-devicons" }
-  -- use { "folke/tokyonight.nvim" }
+  use { "lewis6991/gitsigns.nvim", }
+  use { "kyazdani42/nvim-web-devicons" }
+  use { "folke/tokyonight.nvim" }
   -- use {
   --   "nvim-tree/nvim-tree.lua",
   --   tag = "nightly"
