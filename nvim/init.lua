@@ -1,5 +1,6 @@
 require('user.settings')
 require('user.plugins')
 require('user.plugins.telescope')
--- require('user.plugins.comment')
+require('user.plugins.comment')
 require('user.plugins.treesitter')
+require('user.plugins.nvim-autopairs')
