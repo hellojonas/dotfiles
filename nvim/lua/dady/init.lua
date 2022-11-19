@@ -1,6 +1,0 @@
-require('dady/set')
-require('dady/keymap')
-require('dady/colors')
-require("dady/plugins")
-require("dady/lsp")
-require("dady/linter")
