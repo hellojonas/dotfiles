@@ -2,6 +2,7 @@ require("packer").startup(function(use)
   use { "wbthomason/packer.nvim" }
   use { "tpope/vim-surround" }
   use { "tpope/vim-repeat" }
+  use { "tpope/vim-fugitive" }
   use { "windwp/nvim-autopairs" }
   use { "numToStr/Comment.nvim" }
 
