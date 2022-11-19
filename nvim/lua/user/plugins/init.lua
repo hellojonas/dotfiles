@@ -1,21 +1,27 @@
 require("packer").startup(function(use)
   use { "wbthomason/packer.nvim" }
-  use { "tpope/vim-surround" }
-  use { "tpope/vim-repeat" }
-  use { "windwp/nvim-autopairs" }
-  use { "numToStr/Comment.nvim" }
+  -- use { "tpope/vim-surround" }
+  -- use { "tpope/vim-repeat" }
+  -- use { "windwp/nvim-autopairs" }
+  -- use { "numToStr/Comment.nvim" }
 
   use { "nvim-lua/plenary.nvim" }
-  -- use {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   run = ":TSUpdate"
-  -- }
-  -- use { "nvim-telescope/telescope.nvim" }
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
+  }
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      { 'nvim-lua/plenary.nvim' }
+    }
+  }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   -- use { "neovim/nvim-lspconfig" }
   -- use { "jose-elias-alvarez/null-ls.nvim" }
 
   -- -- Completion
-  -- use { "nvim-lua/popup.nvim" }
+  use { "nvim-lua/popup.nvim" }
   -- use { "hrsh7th/cmp-nvim-lsp" }
   -- use { "hrsh7th/cmp-buffer" }
   -- use { "hrsh7th/cmp-path" }
