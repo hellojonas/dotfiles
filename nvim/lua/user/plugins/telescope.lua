@@ -12,7 +12,7 @@ require('telescope').setup {
     }
   },
   pickers = {
-    -- Default configuration for builtin pickers goes here:
+-- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
     --   ...
@@ -28,6 +28,12 @@ require('telescope').setup {
     -- please take a look at the readme of the extension you want to configure
     file_browser = {
       theme = "ivy",
+      layout_strategy = "horizontal",
+      layout_config = {
+        width = 0.7,
+        height = 0.6,
+        anchor = "N",
+      },
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
