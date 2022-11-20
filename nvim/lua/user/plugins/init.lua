@@ -53,4 +53,12 @@ require("packer").startup(function(use)
 
   use { "mfussenegger/nvim-jdtls" }
   -- use { "mfussenegger/nvim-dap" }
+
+  use { 'notjedi/nvim-rooter.lua' }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v3.*",
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
 end)
