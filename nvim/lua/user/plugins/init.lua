@@ -18,7 +18,7 @@ require("packer").startup(function(use)
     }
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
-  -- use { "neovim/nvim-lspconfig" }
+  use { "neovim/nvim-lspconfig" }
   -- use { "jose-elias-alvarez/null-ls.nvim" }
 
   -- -- Completion
@@ -46,6 +46,6 @@ require("packer").startup(function(use)
   --   tag = "nightly"
   -- }
 
+  use { "mfussenegger/nvim-jdtls" }
   -- use { "mfussenegger/nvim-dap" }
-  -- use { "mfussenegger/nvim-jdtls" }
 end)
