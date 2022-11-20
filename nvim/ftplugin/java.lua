@@ -1,17 +1,15 @@
-local install_path = os.getenv("HOME") .. '/.local/share/java/jdtls'
+require('user.lsp.nvim-jdtls').setup()
+
+--[[ local install_path = os.getenv("HOME") .. '/.local/share/java/jdtls'
 -- local jdtls_path = install_path .. '/bin/jdtls'
 local jdtls_launcher = install_path .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar'
 local jdtls_config = install_path .. '/config_linux'
 
---[[ local config = {
-  cmd = { jdtls_path },
-  root_dir = vim.fs.dirname(vim.fs.find({ '.gradlew', '.git', 'mvnw' }, { upward = true })[1]),
-}
-
-require('jdtls').start_or_attach(config) ]]
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = os.getenv('HOME') .. '/workspace' .. project_name
+local workspace_dir = os.getenv('HOME') .. '/workspace/' .. project_name
+
+local lsp = require('user.lsp')
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -40,6 +38,25 @@ local config = {
   -- for a list of options
   settings = {
     java = {
+      configuration = {
+        -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        -- And search for `interface RuntimeOption`
+        -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
+        runtimes = {
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/java-11-openjdk/",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/usr/lib/jvm/java-17-openjdk/",
+          },
+          {
+            name = "JavaSE-1.8",
+            path = "/usr/lib/jvm/java-8-openjdk/",
+          },
+        }
+      }
     }
   },
 
@@ -53,7 +70,11 @@ local config = {
   init_options = {
     bundles = {}
   },
-}
+  on_attach = lsp.on_attach,
+  flags = lsp.lsp_flags
+} ]]
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-require('jdtls').start_or_attach(config)
+-- jdtls = require('jdtls')
+
+-- jdtls.start_or_attach(config)

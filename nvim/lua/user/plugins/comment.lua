@@ -4,6 +4,6 @@ require('Comment').setup({
     block = '<leader>c',
   },
   opleader = {
-    block = '<leader>/',
+    line = '<leader>/',
   },
 })
