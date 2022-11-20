@@ -18,6 +18,7 @@ require("packer").startup(function(use)
     }
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
+  use {'nvim-telescope/telescope-ui-select.nvim' }
   use { "neovim/nvim-lspconfig" }
   -- use { "jose-elias-alvarez/null-ls.nvim" }
 
