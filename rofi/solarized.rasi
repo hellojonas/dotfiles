@@ -49,6 +49,7 @@ message {
     padding:      1px ;
 }
 textbox {
+    width: 30px;
     text-color: @foreground;
 }
 listview {

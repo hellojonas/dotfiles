@@ -6,63 +6,6 @@ local lsp = require('user.lsp')
 function M.setup()
   local on_attach = function(client, bufnr)
     require 'jdtls.setup'.add_commands()
-    -- require'jdtls'.setup_dap()
-    -- require'lsp-status'.register_progress()
-    --[[ require'compe'.setup {
-          enabled = true;
-          autocomplete = true;
-          debug = false;
-          min_length = 1;
-          preselect = 'enable';
-          throttle_time = 80;
-          source_timeout = 200;
-          incomplete_delay = 400;
-          max_abbr_width = 100;
-          max_kind_width = 100;
-          max_menu_width = 100;
-          documentation = true;
-
-          source = {
-            path = true;
-            buffer = true;
-            calc = true;
-            vsnip = false;
-            nvim_lsp = true;
-            nvim_lua = true;
-            spell = true;
-            tags = true;
-            snippets_nvim = false;
-            treesitter = true;
-          };
-        } ]]
-
-    -- require'lspkind'.init()
-    -- require'lspsaga'.init_lsp_saga()
-
-    -- Kommentary
-    -- vim.api.nvim_set_keymap("n", "<leader>/", "<plug>kommentary_line_default", {})
-    -- vim.api.nvim_set_keymap("v", "<leader>/", "<plug>kommentary_visual_default", {})
-
-    --[[ require'formatter'.setup{
-          filetype = {
-              java = {
-                  function()
-                      return {
-                          exe = 'java',
-                          args = { '-jar', os.getenv('HOME') .. '/.local/jars/google-java-format.jar', vim.api.nvim_buf_get_name(0) },
-                          stdin = true
-                      }
-                  end
-              }
-          }
-      } ]]
-
-    -- vim.api.nvim_exec([[
-    -- augroup FormatAutogroup
-    -- autocmd!
-    -- autocmd BufWritePost *.java FormatWrite
-    -- augroup end
-    -- ]], true)
 
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 

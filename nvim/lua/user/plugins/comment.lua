@@ -1,7 +1,7 @@
 require('Comment').setup({
   toggler = {
     line = '<leader>/',
-    block = '<leader>c',
+    -- block = '<leader>c',
   },
   opleader = {
     line = '<leader>/',
