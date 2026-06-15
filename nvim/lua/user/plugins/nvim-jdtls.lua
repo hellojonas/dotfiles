@@ -17,6 +17,8 @@ local function setup()
 
 	local data_dir = vim.fn.stdpath("data")
 	local jdtls_root = vim.fs.joinpath(data_dir, "mason", "packages", "jdtls")
+	-- packages\java-debug-adapter\extension\server
+	local java_debug_path = vim.fs.joinpath(data_dir, "mason", "packages", "java-debug-adapter", "extension", "server")
 	local lombok_path = vim.fs.joinpath(jdtls_root, "lombok.jar")
 	local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 	local config_path = vim.fs.joinpath(jdtls_root, config_folder)
@@ -68,6 +70,10 @@ local function setup()
 			},
 		}
 	end
+
+	local bundles = {
+		vim.fn.glob(vim.fs.joinpath(java_debug_path, "com.microsoft.java.debug.plugin-*.jar"), true, true)[1],
+	}
 
 	local config = {
 		name = "jdtls",
@@ -127,7 +133,7 @@ local function setup()
 		--
 		-- If you don't plan on any eclipse.jdt.ls plugins you can remove this
 		init_options = {
-			bundles = {},
+			bundles = bundles,
 			extendedClientCapabilities = capabilities,
 		},
 	}
@@ -146,4 +152,7 @@ end
 return {
 	"mfussenegger/nvim-jdtls",
 	config = setup,
+	dependencies = {
+		"mfussenegger/nvim-dap",
+	},
 }
