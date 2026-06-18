@@ -50,38 +50,38 @@ return {
 				{
 					elements = {
 						{
-							id = "scopes",
-							size = 0.25,
-						},
-						{
-							id = "breakpoints",
-							size = 0.25,
-						},
-						{
-							id = "stacks",
-							size = 0.25,
-						},
-						{
-							id = "watches",
-							size = 0.25,
-						},
-					},
-					position = "left",
-					size = 60,
-				},
-				{
-					elements = {
-						{
 							id = "repl",
-							size = 0.3,
+							size = 0.5,
 						},
 						{
 							id = "console",
-							size = 0.7,
+							size = 0.5,
 						},
 					},
 					position = "bottom",
 					size = 10,
+				},
+				{
+					elements = {
+						{
+							id = "scopes",
+							size = 0.33,
+						},
+						{
+							id = "breakpoints",
+							size = 0.1,
+						},
+						-- {
+						-- 	id = "stacks",
+						-- 	size = 0.25,
+						-- },
+						{
+							id = "watches",
+							size = 0.33,
+						},
+					},
+					position = "left",
+					size = 60,
 				},
 			},
 			mappings = {
