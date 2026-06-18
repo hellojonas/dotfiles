@@ -59,25 +59,21 @@ return {
 						},
 					},
 					position = "bottom",
-					size = 10,
+					size = 0.25,
 				},
 				{
 					elements = {
 						{
-							id = "scopes",
-							size = 0.33,
+							id = "breakpoints",
+							size = 0.3,
 						},
 						{
-							id = "breakpoints",
-							size = 0.1,
+							id = "scopes",
+							size = 0.4,
 						},
-						-- {
-						-- 	id = "stacks",
-						-- 	size = 0.25,
-						-- },
 						{
 							id = "watches",
-							size = 0.33,
+							size = 0.3,
 						},
 					},
 					position = "left",
@@ -135,10 +131,10 @@ return {
 		vim.keymap.set("n", "<leader>ds", "<CMD>DapNew<CR>", { desc = "[D]ebugger Start" })
 		vim.keymap.set("n", "<F12>", "<CMD>DapToggleBreakpoint<CR>", { desc = "Debugger [T]oggle [B]reakpoint" })
 		vim.keymap.set("n", "<leader>cb", "<CMD>DapClearBreakpoint<CR>", { desc = "Debugger [T]oggle [B]reakpoint" })
-		vim.keymap.set("n", "<F5>", "<CMD>DapStepInto<CR>", { desc = "Debugger [S]tep [I]nto" })
-		vim.keymap.set("n", "<F4>", "<CMD>DapStepOut<CR>", { desc = "Debugger [S]tep Ou[t]" })
-		vim.keymap.set("n", "<F6>", "<CMD>DapStepOver<CR>", { desc = "Debugger [S]tep O[v]er" })
-		vim.keymap.set("n", "<F3>", "<CMD>DapContinue<CR>", { desc = "[D]ebugger [C]ontinue" })
+		vim.keymap.set("n", "<F5>", "<CMD>DapContinue<CR>", { desc = "Debugger Continue" })
+		vim.keymap.set("n", "<F6>", "<CMD>DapStepOver<CR>", { desc = "Debugger Step Over" })
+		vim.keymap.set("n", "<F4>", "<CMD>DapStepInto<CR>", { desc = "Debugger Step Into" })
+		vim.keymap.set("n", "<F3>", "<CMD>DapStepOut<CR>", { desc = "Debugger Step Out" })
 		vim.keymap.set("n", "<leader>dr", "<CMD>DapRestartFrame<CR>", { desc = "[D]ebugger [R]estart Frame" })
 		vim.keymap.set("n", "<leader>dt", "<CMD>DapStop<CR>", { desc = "[D]ebugger [T]erminate" })
 	end,
