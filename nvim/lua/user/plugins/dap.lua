@@ -117,10 +117,22 @@ return {
 			dapui.close()
 		end
 
+		vim.api.nvim_create_user_command("DapStop", function()
+			local bufs = vim.api.nvim_list_bufs()
+			for _, buf in ipairs(bufs) do
+				local name = vim.api.nvim_buf_get_name(buf)
+				if name:match("%[?dap%-terminal%]?") then
+					dap.terminate()
+					vim.api.nvim_buf_delete(buf, { force = true, unload = true })
+				end
+			end
+		end, { desc = "Terminate sessiont and kill development server" })
+
 		-- Debugger
-		vim.keymap.set("n", "<leader>dui", require("dapui").toggle, { desc = "[D]ebugger [UI]" })
+		vim.keymap.set("n", "<leader>dui", function()
+			require("dapui").toggle({ reset = true })
+		end, { desc = "[D]ebugger [UI]" })
 		vim.keymap.set("n", "<leader>ds", "<CMD>DapNew<CR>", { desc = "[D]ebugger Start" })
-		vim.keymap.set("n", "<leader>dd", "<CMD>DapDisconnect<CR>", { desc = "[D]ebugger [D]isconnect" })
 		vim.keymap.set("n", "<F12>", "<CMD>DapToggleBreakpoint<CR>", { desc = "Debugger [T]oggle [B]reakpoint" })
 		vim.keymap.set("n", "<leader>cb", "<CMD>DapClearBreakpoint<CR>", { desc = "Debugger [T]oggle [B]reakpoint" })
 		vim.keymap.set("n", "<F5>", "<CMD>DapStepInto<CR>", { desc = "Debugger [S]tep [I]nto" })
@@ -128,6 +140,6 @@ return {
 		vim.keymap.set("n", "<F6>", "<CMD>DapStepOver<CR>", { desc = "Debugger [S]tep O[v]er" })
 		vim.keymap.set("n", "<F3>", "<CMD>DapContinue<CR>", { desc = "[D]ebugger [C]ontinue" })
 		vim.keymap.set("n", "<leader>dr", "<CMD>DapRestartFrame<CR>", { desc = "[D]ebugger [R]estart Frame" })
-		vim.keymap.set("n", "<leader>dt", "<CMD>DapTerminate<CR>", { desc = "[D]ebugger [T]erminate" })
+		vim.keymap.set("n", "<leader>dt", "<CMD>DapStop<CR>", { desc = "[D]ebugger [T]erminate" })
 	end,
 }
